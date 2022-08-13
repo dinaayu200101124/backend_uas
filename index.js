@@ -4,7 +4,7 @@ import cors from "cors";
 import UserRoute from "./routes/UserRoute.js";
  
 const app = express();
-mongoose.connect('mongodb://localhost:27017/profilpribadi_db',{
+mongoose.connect('mongodb+srv://ayu:ayu@cluster0.yynwxhg.mongodb.net/?retryWrites=true&w=majority',{
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -16,4 +16,4 @@ app.use(cors());
 app.use(express.json());
 app.use(UserRoute);
  
-app.listen(5000, ()=> console.log('Server up and running...'));
+app.listen(process.env.PORT || 5000, ()=> console.log('Server up and running...'));
